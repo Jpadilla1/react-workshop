@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 let message = {
   width: '90vw',
-  'word-wrap': 'break-word'
+  wordWrap: 'break-word'
 };
 
 class InputBox extends React.Component {
