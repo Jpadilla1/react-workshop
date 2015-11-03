@@ -7,4 +7,5 @@
 3. Clone or download the project.
 4. Run npm install on the root directory.
 5. Change directory to the folder you would like to run.
-6. Open your browser in localhost:8080
+6. Run `webpack-dev-server`
+7. Open your browser in localhost:8080
