@@ -3,6 +3,23 @@ import React from 'react';
 import TodoList from './components/TodoList';
 import Checkbox from './components/Checkbox';
 
+let styles = {
+  appContainer: {
+    width: '500px',
+    fontFamily: 'Helvetica Neue, Helvetica, sans-serif',
+    margin: 'auto',
+    color: 'rgba(80, 80, 80, 1)'
+  },
+  title: {
+    fontSize: '48px',
+    textAlign: 'center'
+  },
+  filter: {
+    textAlign: 'center',
+    marginBottom: '10px'
+  }
+};
+
 class TodosApp extends React.Component {
   constructor() {
     super();
@@ -50,9 +67,10 @@ class TodosApp extends React.Component {
     }
 
     return (
-      <div>
-        <h2>Todos</h2>
-        <div>
+      <div style={styles.appContainer}>
+        <h1 style={styles.title}>Todos</h1>
+        <hr/>
+        <div style={styles.filter}>
           <Checkbox
             toggle={this.toggleFilter}
             checked={this.state.filterDone}/>

@@ -3,6 +3,13 @@ import React from 'react';
 import TodoListItem from './TodoListItem';
 import InputBox from './InputBox';
 
+let styles = {
+  list: {
+    margin: '0',
+    padding: '0'
+  }
+}
+
 class TodoList extends React.Component {
   render() {
     return (
@@ -11,8 +18,9 @@ class TodoList extends React.Component {
           value={this.props.inputValue}
           sendText={this.props.updateText}
           addTodo={this.props.addTodo}
+          placeholder='Add a new todo'
         />
-        <ul>
+        <ul style={styles.list}>
           {this.props.todos.map((value) => {
             return (
               <TodoListItem
