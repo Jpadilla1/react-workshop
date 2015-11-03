@@ -18,10 +18,12 @@
   "homepage": "https://github.com/Jpadilla1/react-workshop#readme",
   "dependencies": {
     "axios": "^0.7.0",
+    "history": "^1.13.0",
     "radium": "^0.14.3",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-fa": "^4.0.0",
+    "react-router": "^1.0.0-rc4",
     "webpack-dev-server": "^1.12.1"
   },
   "devDependencies": {
