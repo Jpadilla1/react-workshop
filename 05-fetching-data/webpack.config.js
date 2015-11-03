@@ -12,11 +12,15 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js/,
+        test: /\.(js|jsx)/,
         exclude: /node_modules/,
-        loaders: [
-          'babel-loader?optional[]=runtime&stage=0'
-        ]
+        loader: 'babel-loader?optional[]=runtime&stage=0',
+      }, {
+        test: /\.css$/,
+        loader: 'style!css'
+      }, {
+        test: /\.(otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
+        loader: 'url-loader?limit=8192'
       }
     ]
   }

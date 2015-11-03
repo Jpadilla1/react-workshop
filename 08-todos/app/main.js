@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TodoList from './components/TodoList';
-import Checkbox from './components/Checkbox';
+import FilterLabel from './components/FilterLabel';
 
 let styles = {
   appContainer: {
@@ -15,7 +15,9 @@ let styles = {
     textAlign: 'center'
   },
   filter: {
-    textAlign: 'center',
+    display: 'flex',
+    flex: '1',
+    justifyContent: 'center',
     marginBottom: '10px'
   }
 };
@@ -42,10 +44,10 @@ class TodosApp extends React.Component {
   updateText = (text) => {
     this.setState({inputText: text});
   }
-  markDone = (id) => {
+  toggleDone = (id) => {
     let todos = this.state.todos.map((todo) => {
       if (todo.id === id) {
-        todo.done = true;
+        todo.done = !todo.done;
       }
       return todo;
     });
@@ -66,21 +68,26 @@ class TodosApp extends React.Component {
       });
     }
 
+    if (this.state.inputText) {
+      todos = todos.filter((todo) => {
+        return todo.text.startsWith(this.state.inputText);
+      });
+    }
+
     return (
       <div style={styles.appContainer}>
         <h1 style={styles.title}>Todos</h1>
         <hr/>
         <div style={styles.filter}>
-          <Checkbox
+          <FilterLabel
             toggle={this.toggleFilter}
-            checked={this.state.filterDone}/>
-          Done
+            selected={this.state.filterDone}/>
         </div>
         <TodoList
           todos={todos}
           addTodo={this.addTodo}
           updateText={this.updateText}
-          markDone={this.markDone}
+          toggleDone={this.toggleDone}
           inputValue={this.state.inputText}/>
       </div>
     );

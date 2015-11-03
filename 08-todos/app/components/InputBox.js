@@ -6,7 +6,9 @@ let styles = {
     boxSizing: 'border-box',
     outline: 'none',
     padding: '15px 10px',
-    fontSize: '20px'
+    fontSize: '20px',
+    border: '1px solid rgba(200, 200, 200, 1)',
+    color: '#777'
   },
   inputContainer: {
     width: '100%'
