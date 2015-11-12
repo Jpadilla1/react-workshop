@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 class HelloMom extends React.Component {
   render() {
     return (
-      <div>Hello Mom</div>
+      <div>Hello Dad {this.props.msg}</div>
     );
   }
 }
@@ -15,7 +15,7 @@ class HelloWorld extends React.Component {
       <div>
         Hello World
         <br/>
-        <HelloMom/>
+        <HelloMom msg={'this is a message'}/>
       </div>
     );
   }

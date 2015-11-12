@@ -31,6 +31,9 @@ let styles = {
       backgroundColor: '#4CAF50',
       color: 'white'
     }
+  },
+  buttonRed: {
+    backgroundColor: 'red'
   }
 };
 
@@ -38,6 +41,10 @@ let styles = {
 class TodoListItem extends React.Component {
   handleDoneClick = (id) => {
     this.props.toggleDone(id)
+  }
+  handleDeleteClick = (id) => {
+    console.log(id);
+    this.props.deleteTodo(id);
   }
   render() {
     let icon = (this.props.todo.done) ?
@@ -50,6 +57,7 @@ class TodoListItem extends React.Component {
           {icon}
         </button>
         <p style={styles.p}>{this.props.todo.text}</p>
+        <button style={styles.buttonRed} onClick={() => this.handleDeleteClick(this.props.todo.id)}>Delete</button>
       </li>
     );
   }

@@ -53,6 +53,12 @@ class TodosApp extends React.Component {
     });
     this.setState({todos});
   }
+  deleteTodo = (id) => {
+    let todos = this.state.todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    this.setState({todos});
+  }
   toggleFilter = () => {
     this.setState({filterDone: !this.state.filterDone});
   }
@@ -70,7 +76,7 @@ class TodosApp extends React.Component {
 
     if (this.state.inputText) {
       todos = todos.filter((todo) => {
-        return todo.text.startsWith(this.state.inputText);
+        return todo.text.toLowerCase().startsWith(this.state.inputText.toLowerCase());
       });
     }
 
@@ -88,7 +94,8 @@ class TodosApp extends React.Component {
           addTodo={this.addTodo}
           updateText={this.updateText}
           toggleDone={this.toggleDone}
-          inputValue={this.state.inputText}/>
+          inputValue={this.state.inputText}
+          deleteTodo={this.deleteTodo}/>
       </div>
     );
   }

@@ -23,9 +23,11 @@ class ArticleList extends React.Component {
     }
   }
   componentDidMount() {
+    console.log(new Date().getTime());
     axios.get('http://jsonplaceholder.typicode.com/posts').then((res) => {
       this.setState({data: res.data})
       this.setState({loading: false});
+      console.log(new Date().getTime());
     }).catch((error) => {
       console.log(error);
     });
